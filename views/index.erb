@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <style>
+    body {
+      text-align: center;
+    }
+
+    th {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      Uniboard
+      <small>Unified train board for NY Penn</small>
+    </h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Carrier</th>
+          <th>Destination</th>
+          <th>Track</th>
+          <th>Train</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% trains.each do |train| %>
+          <tr>
+            <td> <%= train['TIME'].strftime('%l:%M') %></td>
+            <td> <%= train['CARRIER'] %>
+            <td> <%= train['DESTINATION'] %></td>
+            <td> <%= train['TRACK'] %></td>
+            <td> <%= train['TRAIN_ID'] %></td>
+            <td> <%= train['STATUS'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</body>
